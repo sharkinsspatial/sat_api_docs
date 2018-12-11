@@ -1,5 +1,5 @@
 ---
-title: The SAT-API2
+title: The SAT-API
 language_tabs:
   - javascript: JavaScript
   - python: Python
@@ -244,13 +244,13 @@ requested items shall not be counted.
       "links": [
         {
           "rel": "self",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04.json"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
         }
       ],
       "assets": {
         "analytic": {
           "title": "4-Band Analytic",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/analytic.tif"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
         },
         "thumbnail": {
           "title": "Thumbnail",
@@ -396,13 +396,13 @@ Retrieve items matching filters. Intended as the standard, full-featured query A
       "links": [
         {
           "rel": "self",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04.json"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
         }
       ],
       "assets": {
         "analytic": {
           "title": "4-Band Analytic",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/analytic.tif"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
         },
         "thumbnail": {
           "title": "Thumbnail",
@@ -1161,13 +1161,13 @@ If a feature has multiple temporal properties, it is the decision of the server 
       "links": [
         {
           "rel": "self",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04.json"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
         }
       ],
       "assets": {
         "analytic": {
           "title": "4-Band Analytic",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/analytic.tif"
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
         },
         "thumbnail": {
           "title": "Thumbnail",
@@ -1248,13 +1248,13 @@ If a feature has multiple temporal properties, it is the decision of the server 
   "links": [
     {
       "rel": "self",
-      "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04.json"
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
     }
   ],
   "assets": {
     "analytic": {
       "title": "4-Band Analytic",
-      "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/analytic.tif"
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
     },
     "thumbnail": {
       "title": "Thumbnail",
