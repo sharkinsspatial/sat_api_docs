@@ -1,5 +1,5 @@
 ---
-title: The SAT-API
+title: The SAT-API2
 language_tabs:
   - javascript: JavaScript
   - python: Python
@@ -244,7 +244,7 @@ requested items shall not be counted.
       "links": [
         {
           "rel": "self",
-          "href": "https://sat-api.developmentseed.org/catalog/collections/cs/items/CS3-20160503_132130_04.json"
+          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04.json"
         }
       ],
       "assets": {
