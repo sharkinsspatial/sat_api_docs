@@ -77,18 +77,12 @@ paths:
             application/geo+json:
               schema:
                 $ref: '#/components/schemas/itemCollection'
-            text/html:
-              schema:
-                type: string
         default:
           description: An error occurred.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 
   /collections:
     get:
@@ -103,18 +97,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/content'
-            text/html:
-              schema:
-                type: string
         default:
           description: An error occurred.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 
   '/collections/{collectionId}':
     get:
@@ -131,18 +119,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/collectionInfo'
-            text/html:
-              schema:
-                type: string
         default:
           description: An error occurred.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 
   '/collections/{collectionId}/items':
     get:
@@ -170,18 +152,12 @@ paths:
             application/geo+json:
               schema:
                 $ref: 'http://geojson.org/schema/FeatureCollection.json'
-            text/html:
-              schema:
-                type: string
         default:
           description: An error occurred.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 
   '/collections/{collectionId}/items/{featureId}':
     get:
@@ -199,18 +175,12 @@ paths:
             application/geo+json:
               schema:
                 $ref: 'http://geojson.org/schema/Feature.json'
-            text/html:
-              schema:
-                type: string
         default:
           description: An error occurred.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 
 components:
   parameters:
@@ -520,7 +490,7 @@ components:
             format: url
             description: Link to the asset object
             example: >-
-              http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png
+              http://cool-sat.com/LC80100102015050LGN00/thumb.png
           title:
             type: string
             description: Displayed title
@@ -549,7 +519,7 @@ components:
       example:
         - rel: next
           href: >-
-            http://api.cool-sat.com/query/gasd312fsaeg/ANsXtp9mrqN0yrKWhf-y2PUpHRLQb1GT-mtxNcXou8TwkXhi1Jbk
+            http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/gasd312fsaeg
     root:
       type: object
       required:

@@ -263,7 +263,7 @@ requested items shall not be counted.
   "links": [
     {
       "rel": "next",
-      "href": "http://api.cool-sat.com/query/gasd312fsaeg/ANsXtp9mrqN0yrKWhf-y2PUpHRLQb1GT-mtxNcXou8TwkXhi1Jbk"
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/gasd312fsaeg"
     }
   ]
 }
@@ -273,8 +273,8 @@ requested items shall not be counted.
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature collection.|string|
-|default|Default|An error occurred.|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature collection.|[itemCollection](#schemaitemcollection)|
+|default|Default|An error occurred.|[exception](#schemaexception)|
 
 <aside class="success">
 This operation does not require authentication
@@ -502,8 +502,8 @@ print r.json()
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Metdata about the feature collections shared by this API.|string|
-|default|Default|An error occurred.|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Metdata about the feature collections shared by this API.|[content](#schemacontent)|
+|default|Default|An error occurred.|[exception](#schemaexception)|
 
 <aside class="success">
 This operation does not require authentication
@@ -624,8 +624,8 @@ print r.json()
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Metadata about the {collectionId} collection shared by this API.|string|
-|default|Default|An error occurred.|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Metadata about the {collectionId} collection shared by this API.|[collectionInfo](#schemacollectioninfo)|
+|default|Default|An error occurred.|[exception](#schemaexception)|
 
 <aside class="success">
 This operation does not require authentication
@@ -731,8 +731,6 @@ Only features that have a temporal property that intersects the value of `time` 
 
 > Example responses
 
-> 200 Response
-
 > default Response
 
 ```json
@@ -746,8 +744,10 @@ Only features that have a temporal property that intersects the value of `time` 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Information about the feature collection plus the first features matching the selection parameters.|string|
-|default|Default|An error occurred.|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Information about the feature collection plus the first features matching the selection parameters.|None|
+|default|Default|An error occurred.|[exception](#schemaexception)|
+
+<h3 id="retrieve-features-of-feature-collection-{collectionid}-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -802,8 +802,6 @@ print r.json()
 
 > Example responses
 
-> 200 Response
-
 > default Response
 
 ```json
@@ -817,8 +815,10 @@ print r.json()
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature.|string|
-|default|Default|An error occurred.|string|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature.|None|
+|default|Default|An error occurred.|[exception](#schemaexception)|
+
+<h3 id="retrieve-a-feature;-use-content-negotiation-to-request-html-or-geojson-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -1059,7 +1059,7 @@ If a feature has multiple temporal properties, it is the decision of the server 
   "links": [
     {
       "rel": "next",
-      "href": "http://api.cool-sat.com/query/gasd312fsaeg/ANsXtp9mrqN0yrKWhf-y2PUpHRLQb1GT-mtxNcXou8TwkXhi1Jbk"
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/gasd312fsaeg"
     }
   ]
 }
@@ -1205,12 +1205,12 @@ If a feature has multiple temporal properties, it is the decision of the server 
 ```json
 {
   "property1": {
-    "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png",
+    "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
     "title": "Thumbnail",
     "type": "image/png"
   },
   "property2": {
-    "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png",
+    "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
     "title": "Thumbnail",
     "type": "image/png"
   }
@@ -1257,7 +1257,7 @@ If a feature has multiple temporal properties, it is the decision of the server 
 [
   {
     "rel": "next",
-    "href": "http://api.cool-sat.com/query/gasd312fsaeg/ANsXtp9mrqN0yrKWhf-y2PUpHRLQb1GT-mtxNcXou8TwkXhi1Jbk"
+    "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/gasd312fsaeg"
   }
 ]
 
