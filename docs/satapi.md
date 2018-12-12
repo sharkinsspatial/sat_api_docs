@@ -282,93 +282,6 @@ This operation does not require authentication
 
 <h1 id="the-sat-api-capabilities">Capabilities</h1>
 
-## landing page of this API
-
-<a id="opIdgetLandingPage"></a>
-
-> Code samples
-
-```javascript
-var headers = {
-  'Accept':'application/json'
-
-};
-
-$.ajax({
-  url: 'https://sat-api.developmentseed.org/',
-  method: 'get',
-
-  headers: headers,
-  success: function(data) {
-    console.log(JSON.stringify(data));
-  }
-})
-
-```
-
-```python
-import requests
-headers = {
-  'Accept': 'application/json'
-}
-
-r = requests.get('https://sat-api.developmentseed.org/', params={
-
-}, headers = headers)
-
-print r.json()
-
-```
-
-`GET /`
-
-The landing page provides links to the API definition, the Conformance statements and the metadata about the feature data in this dataset.
-
-> Example responses
-
-> 200 Response
-
-```json
-{
-  "links": [
-    {
-      "href": "http://data.example.org/",
-      "rel": "self",
-      "type": "application/json",
-      "title": "this document"
-    },
-    {
-      "href": "http://data.example.org/api",
-      "rel": "service",
-      "type": "application/openapi+json;version=3.0",
-      "title": "the API definition"
-    },
-    {
-      "href": "http://data.example.org/conformance",
-      "rel": "conformance",
-      "type": "application/json",
-      "title": "WFS 3.0 conformance classes implemented by this server"
-    },
-    {
-      "href": "http://data.example.org/collections",
-      "rel": "data",
-      "type": "application/json",
-      "title": "Metadata about the feature collections"
-    }
-  ]
-}
-```
-
-<h3 id="landing-page-of-this-api-responses">Responses</h3>
-
-|Status|Meaning|Description|Schema|
-|---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|links to the API capabilities|string|
-
-<aside class="success">
-This operation does not require authentication
-</aside>
-
 ## describe the feature collections in the dataset
 
 <a id="opIddescribeCollections"></a>
@@ -731,12 +644,77 @@ Only features that have a temporal property that intersects the value of `time` 
 
 > Example responses
 
-> default Response
+> 200 Response
 
 ```json
 {
-  "code": "string",
-  "description": "string"
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "CS3-20160503_132130_04",
+      "bbox": [
+        -122.59750209,
+        37.48803556,
+        -122.2880486,
+        37.613537207
+      ],
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              -122.308150179,
+              37.488035566
+            ],
+            [
+              -122.597502109,
+              37.538869539
+            ],
+            [
+              -122.576687533,
+              37.613537207
+            ],
+            [
+              -122.2880486,
+              37.562818007
+            ],
+            [
+              -122.308150179,
+              37.488035566
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "datetime": "2016-05-03T13:21:30.040Z"
+      },
+      "links": [
+        {
+          "rel": "self",
+          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
+        }
+      ],
+      "assets": {
+        "analytic": {
+          "title": "4-Band Analytic",
+          "href": "http://cool-sat.com/LC80100102015050LGN00/band4.tiff",
+          "type": "image/tiff"
+        },
+        "thumbnail": {
+          "title": "Thumbnail",
+          "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
+          "type": "image/png"
+        }
+      }
+    }
+  ],
+  "links": [
+    {
+      "rel": "next",
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/gasd312fsaeg"
+    }
+  ]
 }
 ```
 
@@ -744,10 +722,8 @@ Only features that have a temporal property that intersects the value of `time` 
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Information about the feature collection plus the first features matching the selection parameters.|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|Information about the feature collection plus the first features matching the selection parameters.|[itemCollection](#schemaitemcollection)|
 |default|Default|An error occurred.|[exception](#schemaexception)|
-
-<h3 id="retrieve-features-of-feature-collection-{collectionid}-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication
@@ -802,12 +778,66 @@ print r.json()
 
 > Example responses
 
-> default Response
+> 200 Response
 
 ```json
 {
-  "code": "string",
-  "description": "string"
+  "type": "Feature",
+  "id": "CS3-20160503_132130_04",
+  "bbox": [
+    -122.59750209,
+    37.48803556,
+    -122.2880486,
+    37.613537207
+  ],
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -122.308150179,
+          37.488035566
+        ],
+        [
+          -122.597502109,
+          37.538869539
+        ],
+        [
+          -122.576687533,
+          37.613537207
+        ],
+        [
+          -122.2880486,
+          37.562818007
+        ],
+        [
+          -122.308150179,
+          37.488035566
+        ]
+      ]
+    ]
+  },
+  "properties": {
+    "datetime": "2016-05-03T13:21:30.040Z"
+  },
+  "links": [
+    {
+      "rel": "self",
+      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00.json"
+    }
+  ],
+  "assets": {
+    "analytic": {
+      "title": "4-Band Analytic",
+      "href": "http://cool-sat.com/LC80100102015050LGN00/band4.tiff",
+      "type": "image/tiff"
+    },
+    "thumbnail": {
+      "title": "Thumbnail",
+      "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
+      "type": "image/png"
+    }
+  }
 }
 ```
 
@@ -815,10 +845,8 @@ print r.json()
 
 |Status|Meaning|Description|Schema|
 |---|---|---|---|
-|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature.|None|
+|200|[OK](https://tools.ietf.org/html/rfc7231#section-6.3.1)|A feature.|[item](#schemaitem)|
 |default|Default|An error occurred.|[exception](#schemaexception)|
-
-<h3 id="retrieve-a-feature;-use-content-negotiation-to-request-html-or-geojson-responseschema">Response Schema</h3>
 
 <aside class="success">
 This operation does not require authentication

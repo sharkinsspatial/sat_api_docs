@@ -18,26 +18,6 @@ servers:
   - url: 'https://sat-api.developmentseed.org/'
     description: Production server
 paths:
-  /:
-    get:
-      summary: landing page of this API
-      description: >-
-        The landing page provides links to the API definition, the Conformance
-        statements and the metadata about the feature data in this dataset.
-      operationId: getLandingPage
-      tags:
-        - Capabilities
-      responses:
-        '200':
-          description: links to the API capabilities
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/root'
-            text/html:
-              schema:
-                type: string
-
   /stac:
     get:
       summary: Return the root catalog or collection.
@@ -151,7 +131,7 @@ paths:
           content:
             application/geo+json:
               schema:
-                $ref: 'http://geojson.org/schema/FeatureCollection.json'
+                $ref: '#/components/schemas/itemCollection'
         default:
           description: An error occurred.
           content:
@@ -174,7 +154,7 @@ paths:
           content:
             application/geo+json:
               schema:
-                $ref: 'http://geojson.org/schema/Feature.json'
+                $ref: '#/components/schemas/item'
         default:
           description: An error occurred.
           content:
