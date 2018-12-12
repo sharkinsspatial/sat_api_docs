@@ -37,6 +37,33 @@ paths:
             text/html:
               schema:
                 type: string
+
+  /collections:
+    get:
+      summary: describe the feature collections in the dataset
+      operationId: describeCollections
+      tags:
+        - Capabilities
+      responses:
+        '200':
+          description: Metdata about the feature collections shared by this API.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/content'
+            text/html:
+              schema:
+                type: string
+        default:
+          description: An error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/exception'
+            text/html:
+              schema:
+                type: string
+
   '/collections/{collectionId}':
     get:
       summary: 'describe the {collectionId} feature collection'
@@ -64,6 +91,7 @@ paths:
             text/html:
               schema:
                 type: string
+
   '/collections/{collectionId}/items':
     get:
       summary: 'retrieve features of feature collection {collectionId}'
@@ -102,6 +130,7 @@ paths:
             text/html:
               schema:
                 type: string
+
   '/collections/{collectionId}/items/{featureId}':
     get:
       summary: retrieve a feature; use content negotiation to request HTML or GeoJSON
@@ -130,6 +159,7 @@ paths:
             text/html:
               schema:
                 type: string
+
   /stac:
     get:
       summary: Return the root catalog or collection.
@@ -148,6 +178,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/catalogDefinition'
+
   /stac/search:
     get:
       summary: Search STAC items by simple filtering.
@@ -161,39 +192,6 @@ paths:
         - $ref: '#/components/parameters/bbox'
         - $ref: '#/components/parameters/time'
         - $ref: '#/components/parameters/limit'
-        - $ref: '#/components/parameters/query'
-      responses:
-        '200':
-          description: A feature collection.
-          content:
-            application/geo+json:
-              schema:
-                $ref: '#/components/schemas/itemCollection'
-            text/html:
-              schema:
-                type: string
-        default:
-          description: An error occurred.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
-    post:
-      summary: Search STAC items by full-featured filtering.
-      description: >-
-        Retrieve items matching filters. Intended as the standard, full-featured
-        query API.
-      operationId: postSearchSTAC
-      tags:
-        - STAC
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/searchBody'
       responses:
         '200':
           description: A feature collection.
@@ -309,15 +307,6 @@ components:
       required: true
       schema:
         type: string
-    query:
-      name: query
-      in: query
-      description: >-
-        query for properties in items. Use the JSON form of the queryFilter used
-        in POST.
-      required: false
-      schema:
-        type: string
   schemas:
     exception:
       type: object
@@ -352,18 +341,6 @@ components:
         title:
           type: string
           example: NAIP Child Catalog
-    searchBody:
-      description: The search criteria
-      type: object
-      allOf:
-        - $ref: '#/components/schemas/bboxFilter'
-        - $ref: '#/components/schemas/timeFilter'
-        - $ref: '#/components/schemas/intersectsFilter'
-        - type: object
-          properties:
-            limit:
-              type: number
-              example: 10
     bbox:
       description: |
         Only features that have a geometry that intersects the bounding box are
@@ -403,24 +380,6 @@ components:
         - 39.5
         - -105
         - 40.5
-    bboxFilter:
-      type: object
-      description: Only return items that intersect the provided bounding box.
-      properties:
-        bbox:
-          $ref: '#/components/schemas/bbox'
-    timeFilter:
-      description: An object representing a time based filter.
-      type: object
-      properties:
-        time:
-          $ref: '#/components/schemas/time'
-    intersectsFilter:
-      type: object
-      description: Only returns items that intersect with the provided polygon.
-      properties:
-        intersects:
-          $ref: 'http://geojson.org/schema/Geometry.json'
     time:
       type: string
       description: >
