@@ -38,6 +38,58 @@ paths:
               schema:
                 type: string
 
+  /stac:
+    get:
+      summary: Return the root catalog or collection.
+      description: >-
+        Returns the root STAC Catalog or STAC Collection that is the entry point
+        for users to browse with STAC Browser or for search engines to crawl.
+        This can either return a single STAC Collection or more commonly a STAC
+        catalog that usually lists sub-catalogs of STAC Collections, i.e. a
+        simple catalog that lists all collections available through the API.
+      tags:
+        - STAC
+      responses:
+        '200':
+          description: A catalog json definition. Used as an entry point for a crawler.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/catalogDefinition'
+
+  /stac/search:
+    get:
+      summary: Search STAC items by simple filtering.
+      description: >-
+        Retrieve Items matching filters. Intended as a shorthand API for simple
+        queries.
+      operationId: getSearchSTAC
+      tags:
+        - STAC
+      parameters:
+        - $ref: '#/components/parameters/bbox'
+        - $ref: '#/components/parameters/time'
+        - $ref: '#/components/parameters/limit'
+      responses:
+        '200':
+          description: A feature collection.
+          content:
+            application/geo+json:
+              schema:
+                $ref: '#/components/schemas/itemCollection'
+            text/html:
+              schema:
+                type: string
+        default:
+          description: An error occurred.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/exception'
+            text/html:
+              schema:
+                type: string
+
   /collections:
     get:
       summary: describe the feature collections in the dataset
@@ -160,57 +212,6 @@ paths:
               schema:
                 type: string
 
-  /stac:
-    get:
-      summary: Return the root catalog or collection.
-      description: >-
-        Returns the root STAC Catalog or STAC Collection that is the entry point
-        for users to browse with STAC Browser or for search engines to crawl.
-        This can either return a single STAC Collection or more commonly a STAC
-        catalog that usually lists sub-catalogs of STAC Collections, i.e. a
-        simple catalog that lists all collections available through the API.
-      tags:
-        - STAC
-      responses:
-        '200':
-          description: A catalog json definition. Used as an entry point for a crawler.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/catalogDefinition'
-
-  /stac/search:
-    get:
-      summary: Search STAC items by simple filtering.
-      description: >-
-        Retrieve Items matching filters. Intended as a shorthand API for simple
-        queries.
-      operationId: getSearchSTAC
-      tags:
-        - STAC
-      parameters:
-        - $ref: '#/components/parameters/bbox'
-        - $ref: '#/components/parameters/time'
-        - $ref: '#/components/parameters/limit'
-      responses:
-        '200':
-          description: A feature collection.
-          content:
-            application/geo+json:
-              schema:
-                $ref: '#/components/schemas/itemCollection'
-            text/html:
-              schema:
-                type: string
-        default:
-          description: An error occurred.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/exception'
-            text/html:
-              schema:
-                type: string
 components:
   parameters:
     limit:
@@ -491,11 +492,12 @@ components:
           analytic:
             title: 4-Band Analytic
             href: >-
-              http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/	
+              http://cool-sat.com/LC80100102015050LGN00/band4.tiff
+            type: image/tiff
           thumbnail:
             title: Thumbnail
             href: >-
-              http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png
+              http://cool-sat.com/LC80100102015050LGN00/thumb.png
             type: image/png
     itemId:
       type: string

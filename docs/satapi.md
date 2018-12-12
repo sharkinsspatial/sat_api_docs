@@ -249,11 +249,12 @@ requested items shall not be counted.
       "assets": {
         "analytic": {
           "title": "4-Band Analytic",
-          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
+          "href": "http://cool-sat.com/LC80100102015050LGN00/band4.tiff",
+          "type": "image/tiff"
         },
         "thumbnail": {
           "title": "Thumbnail",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png",
+          "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
           "type": "image/png"
         }
       }
@@ -1044,11 +1045,12 @@ If a feature has multiple temporal properties, it is the decision of the server 
       "assets": {
         "analytic": {
           "title": "4-Band Analytic",
-          "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
+          "href": "http://cool-sat.com/LC80100102015050LGN00/band4.tiff",
+          "type": "image/tiff"
         },
         "thumbnail": {
           "title": "Thumbnail",
-          "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png",
+          "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
           "type": "image/png"
         }
       }
@@ -1131,11 +1133,12 @@ If a feature has multiple temporal properties, it is the decision of the server 
   "assets": {
     "analytic": {
       "title": "4-Band Analytic",
-      "href": "http://https://sat-api.developmentseed.org/collections/landsat-8-l1/items/LC80100102015050LGN00/\t"
+      "href": "http://cool-sat.com/LC80100102015050LGN00/band4.tiff",
+      "type": "image/tiff"
     },
     "thumbnail": {
       "title": "Thumbnail",
-      "href": "http://cool-sat.com/catalog/collections/cs/items/CS3-20160503_132130_04/thumb.png",
+      "href": "http://cool-sat.com/LC80100102015050LGN00/thumb.png",
       "type": "image/png"
     }
   }
