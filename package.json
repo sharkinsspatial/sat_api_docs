@@ -1,5 +1,9 @@
 {
+  "scripts": {
+    "build-api-docs": "yarn widdershins --search false --language_tabs 'nodejs:NodeJS' 'python:Python' --summary ./api-spec.yaml -o ./source/index.html.md"
+  },
   "dependencies": {
+    "shins": "^2.3.2-3",
     "widdershins": "^3.6.6"
   }
 }
